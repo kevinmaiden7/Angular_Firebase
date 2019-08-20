@@ -7,6 +7,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class FirestoreService {
 
   constructor(
-    private firestoreService: AngularFirestore
+    private firestore: AngularFirestore
   ) { }
+
+  addUser(data){
+    //return this.firestore.collection("users").add(data);
+    return new Promise<any>((resolve, reject) =>{
+      this.firestore
+          .collection("users")
+          .add(data)});
+  }
 }
