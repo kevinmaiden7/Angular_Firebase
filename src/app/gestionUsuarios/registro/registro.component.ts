@@ -16,13 +16,10 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
     console.log("entering register page");
-    this.user.name= "user1";
-    this.user.email="user1@test.com";
-    this.user.password="user1123";
-    const promise = this.firestoreService.addUser(this.user);
-    promise
-    .then(data => console.log(data))
-    .catch(e => console.log(e.message));
+    this.user.name= "admin";
+    this.user.email="admin@admindomain.com";
+    this.user.password="admin123";
+    //this.firestoreService.addUser(this.user);
   }
 
 }

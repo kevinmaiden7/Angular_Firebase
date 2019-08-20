@@ -12,9 +12,13 @@ export class FirestoreService {
 
   addUser(data){
     //return this.firestore.collection("users").add(data);
+    console.log("entering addUser");
     return new Promise<any>((resolve, reject) =>{
       this.firestore
           .collection("users")
-          .add(data)});
+          .add(data).then(res => {
+            console.log("User successfully added!")
+          }, err => reject(err));
+        });
   }
 }
