@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { FirestoreService } from '../../services/firestore.service';
 export class RegistroComponent implements OnInit {
 
   user: any = {};
+  userPassword = "";
 
   constructor(
     private firestoreService: FirestoreService
@@ -16,10 +18,13 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
     console.log("entering register page");
-    this.user.name= "admin";
-    this.user.email="admin@admindomain.com";
-    this.user.password="admin123";
-    //this.firestoreService.addUser(this.user);
+    this.user.nombres="";
+    this.user.apellidos="";
+    this.user.email="";
+  }
+  
+  agregarUsuario(){
+    this.firestoreService.addUser(this.user, this.userPassword);
   }
 
 }

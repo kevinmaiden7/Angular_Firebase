@@ -1,20 +1,20 @@
 <mat-card>
-    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    <form #loginForm="ngForm" (ngSubmit)="login()">
         
         <mat-card-header>
-            <mat-card-title><h2>Login</h2></mat-card-title>
+            <mat-card-title><h2>Inicio de Sesión</h2></mat-card-title>
         </mat-card-header>
 
         <mat-card-content>
             <div>
                 <mat-form-field>
-                    <input matInput placeholder="Email" [(ngModel)]="user.email"
+                    <input matInput placeholder="Correo" [(ngModel)]="user.email"
                     required name="email" #email>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
-                    <input matInput placeholder="Password" [(ngModel)]="user.password"
+                    <input matInput placeholder="Contraseña" [(ngModel)]="user.password"
                     type="password" required name="password" #password>
                 </mat-form-field>
             </div>
@@ -22,9 +22,9 @@
 
         <mat-card-actions>
             <button mat-raised-button color="primary" type="submit"
-                    [disabled]="!loginForm.form.valid">Log in</button>
+                    [disabled]="!loginForm.form.valid">Ingresar</button>
             <button mat-raised-button color="secondary" (click)="logout()"
-             type="button">Log out</button>
+             type="button">Salir</button>
         </mat-card-actions>
 
     </form>

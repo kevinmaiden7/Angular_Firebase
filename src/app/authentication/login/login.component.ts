@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  login(form: NgForm){
+  login(){
     console.log("Trying to log in");
     const promise = this.authService.logIn(this.user.email, this.user.password);
     promise
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     .catch(e => console.log(e.message));
   }
 
+  // Show info
   state(data){
     if(data){
       console.log("Logged in!");
@@ -51,4 +52,5 @@ export class LoginComponent implements OnInit, OnDestroy {
       console.log(data.user.uid);
     }else console.log("Not logged in");
   }
+  
 }
