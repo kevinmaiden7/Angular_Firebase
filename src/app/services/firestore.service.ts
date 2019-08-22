@@ -28,4 +28,10 @@ export class FirestoreService {
         });
     });
   }
+
+  fetchUser(uid){
+    return this.firestore.collection(this.usersCollection).
+    doc(uid).get().toPromise();
+  }
+
 }

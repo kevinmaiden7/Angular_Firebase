@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,49 +8,30 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
-  sub: Subscription;
   user: any = {};
 
   constructor(
+      private router: Router,
       private authService: AuthService
   ) { }
 
   ngOnInit() {
     this.user.email = "";
     this.user.password = "";
-    console.log("entering login");
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+  goToProfile(uid){
+    window.alert("Autenticación Correcta");
+    this.router.navigate(['perfil/' + uid]);
   }
 
   login(){
-    console.log("Trying to log in");
     const promise = this.authService.logIn(this.user.email, this.user.password);
     promise
-    .then(data => this.state(data))
+    .then(data => this.goToProfile(data.user.uid))
     .catch(e => console.log(e.message));
   }
 
-  logout(){
-    console.log("Trying to log out");
-    const promise = this.authService.logOut();
-    promise
-    .then(data => this.state(data))
-    .catch(e => console.log(e.message));
-  }
-
-  // Show info
-  state(data){
-    if(data){
-      console.log("Logged in!");
-      console.log(data);
-      console.log(data.user.email);
-      console.log(data.user.uid);
-    }else console.log("Not logged in");
-  }
-  
 }

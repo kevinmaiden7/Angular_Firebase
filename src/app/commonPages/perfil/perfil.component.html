@@ -1,0 +1,23 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title><h2>Perfil de Usuario</h2></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div>
+            <h1>{{user.rol}}</h1>
+            <h3>Nombre(s): {{user.nombres}}</h3>
+            <h3>Apellido(s): {{user.apellidos}}</h3>
+            <h3>Correo Electrónico: {{user.correo}}</h3>
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div>
+            <button mat-raised-button color="secondary" (click)="logout()"
+            type="button">Cerrar Sesion</button>
+        </div>
+    </mat-card-actions>
+
+</mat-card>

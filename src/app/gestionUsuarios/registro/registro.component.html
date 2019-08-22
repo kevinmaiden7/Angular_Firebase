@@ -20,6 +20,12 @@
             </div>
             <div>
                 <mat-form-field>
+                    <input matInput placeholder="Rol" [(ngModel)]="user.rol"
+                    required name="rol" #rol>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
                     <input matInput placeholder="Correo" [(ngModel)]="user.email"
                     required name="email" #email>
                 </mat-form-field>

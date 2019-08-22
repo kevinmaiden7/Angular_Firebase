@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { InicioComponent } from './commonPages/inicio/inicio.component';
+import { PerfilComponent } from './commonPages/perfil/perfil.component';
 
 // Web app's Firebase configuration
 const config = {
@@ -29,7 +31,9 @@ const config = {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    InicioComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
