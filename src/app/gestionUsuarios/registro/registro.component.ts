@@ -28,8 +28,4 @@ export class RegistroComponent implements OnInit {
     this.firestoreService.addUser(this.user, this.userPassword);
   }
 
-  test(ngForm){
-    ngForm.resetForm();
-  }
-
 }
