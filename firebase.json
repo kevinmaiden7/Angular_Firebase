@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": ".\\dist\\ClienteSGI",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
