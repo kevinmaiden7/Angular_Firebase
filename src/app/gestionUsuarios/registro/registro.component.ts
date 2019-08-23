@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
@@ -13,19 +14,19 @@ export class RegistroComponent implements OnInit {
   userPassword = "";
 
   constructor(
+    private router: Router,
     private firestoreService: FirestoreService
   ) { }
 
   ngOnInit() {
-    console.log("entering register page");
     this.user.nombres="";
     this.user.apellidos="";
     this.user.rol="";
     this.user.email="";
   }
   
-  agregarUsuario(){
+  agregarUsuario(form: NgForm){
     this.firestoreService.addUser(this.user, this.userPassword);
+    this.router.navigate(['']);
   }
-
 }

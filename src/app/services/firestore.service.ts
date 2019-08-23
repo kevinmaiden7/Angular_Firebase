@@ -23,8 +23,8 @@ export class FirestoreService {
       return new Promise<any>((resolve, reject) =>{
         this.firestore.collection(this.usersCollection).
         doc(cred.user.uid).set(data).then(res => {
-            console.log("User successfully added!")
-          }, error => console.log(error));
+            console.log("User successfully added!");
+          }, error => error.log(error));
         });
     });
   }
