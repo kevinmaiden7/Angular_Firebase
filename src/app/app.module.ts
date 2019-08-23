@@ -23,7 +23,7 @@ const config = {
   authDomain: "authtest-f3f65.firebaseapp.com",
   databaseURL: "https://authtest-f3f65.firebaseio.com",
   projectId: "authtest-f3f65",
-  storageBucket: "",
+  storageBucket: "authtest-f3f65.appspot.com",
   messagingSenderId: "345824796423",
   appId: "1:345824796423:web:49f9e44c6c6dd6b0"
 };

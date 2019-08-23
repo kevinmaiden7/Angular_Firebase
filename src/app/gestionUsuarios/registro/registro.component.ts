@@ -25,7 +25,7 @@ export class RegistroComponent implements OnInit {
     this.user.email="";
   }
   
-  agregarUsuario(form: NgForm){
+  agregarUsuario(){
     this.firestoreService.addUser(this.user, this.userPassword);
     this.router.navigate(['']);
   }
