@@ -4,6 +4,9 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegistroComponent } from './gestionUsuarios/registro/registro.component';
 import { InicioComponent } from './commonPages/inicio/inicio.component';
 import { PerfilComponent } from './commonPages/perfil/perfil.component';
+import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-usuarios.component';
+import { AuthGuard } from './guards';
+import { Role } from './models'
 
 const routes: Routes = [
   {
@@ -16,12 +19,23 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    component: RegistroComponent
+    component: RegistroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin] }
   },
   {
     path: 'perfil/:uid',
     component: PerfilComponent
-  }
+  },
+  {
+    path: 'lista-usuarios',
+    component: ListaUsuariosComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin] }
+  },
+
+  // cualquier otro caso redireccionar a inicio
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { InicioComponent } from './commonPages/inicio/inicio.component';
 import { PerfilComponent } from './commonPages/perfil/perfil.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-usuarios.component';
 
 // Web app's Firebase configuration
 const config = {
@@ -35,7 +36,8 @@ const config = {
     RegistroComponent,
     InicioComponent,
     PerfilComponent,
-    TopBarComponent
+    TopBarComponent,
+    ListaUsuariosComponent
   ],
   imports: [
     BrowserModule,

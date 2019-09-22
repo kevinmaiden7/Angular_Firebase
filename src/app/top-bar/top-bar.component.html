@@ -8,6 +8,7 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" routerLink="/">Inicio</a>
                 <a class="nav-item nav-link" routerLink="/registro" *ngIf="isAdmin">Registro</a>
+                <a class="nav-item nav-link" routerLink="/lista-usuarios" *ngIf="isAdmin">Usuarios</a>
                 <a class="nav-item nav-link" routerLink="/" (click)="logout()" *ngIf="isAuthenticated">Logout</a>
             </div>
         </nav>
