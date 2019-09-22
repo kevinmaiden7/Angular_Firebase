@@ -19,7 +19,8 @@ export class AuthService {
   private userDetails: firebase.User = null;
 
   constructor(
-    private fireAuth: AngularFireAuth
+    private fireAuth: AngularFireAuth,
+    //private firestoreService: FirestoreService
   ) {
     this.user = this.fireAuth.authState;
     this.user.subscribe((user) => {
@@ -41,10 +42,27 @@ export class AuthService {
   }
 
   // Obtener el estado de autenticación
-  get authenticated():boolean {
-    return this.userDetails != null; // True o False
+  get authenticated(): boolean {
+    var value = localStorage.getItem("authenticated");
+    return (value == "true");
   }
-  
+
+  get getCurrentUserUID(){
+    var value = localStorage.getItem("uid");
+    return (value);
+  }
+
+  get getCurrentUserRole(){
+    var value = localStorage.getItem("rol");
+    return (value);
+  }
+
+  get getCurrentUserEmail(){
+    var value = localStorage.getItem("email");
+    return (value);
+  }
+
+  //
   // Obtener el observador del usuario actual
   get currentUser(): firebase.User {
     return this.userDetails;

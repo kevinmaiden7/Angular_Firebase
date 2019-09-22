@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirestoreService } from '../../services/firestore.service';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-perfil',
@@ -17,8 +16,7 @@ export class PerfilComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private firestoreService: FirestoreService,
-    private authService: AuthService
+    private firestoreService: FirestoreService
   ) { }
 
   ngOnInit() {
@@ -32,17 +30,6 @@ export class PerfilComponent implements OnInit {
         this.user.rol = userData.rol;
       });
     });
-  }
-
-  logout(){
-    this.authService.logOut().then(res => {
-      this.salir();
-    }).catch(e => console.log(e.message));
-  }
-
-  salir(){
-    window.alert("Se cerró la sesión");
-    this.router.navigate(['/login']);
   }
 
 }
