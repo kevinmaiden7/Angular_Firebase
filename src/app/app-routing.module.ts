@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './authentication/login/login.component';
+import { LoginComponent } from './security/login/login.component';
 import { RegistroComponent } from './gestionUsuarios/registro/registro.component';
 import { InicioComponent } from './commonPages/inicio/inicio.component';
 import { PerfilComponent } from './commonPages/perfil/perfil.component';
 import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-usuarios.component';
-import { AuthGuard } from './guards';
-import { Role } from './models'
+import { AuthGuard } from './security/guards/auth.guard';
+import { Role } from './security/models'
 
 const routes: Routes = [
   {
