@@ -20,12 +20,6 @@
             </div>
             <div>
                 <mat-form-field>
-                    <input matInput placeholder="Rol" [(ngModel)]="user.rol"
-                    required name="rol" #rol>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field>
                     <input matInput placeholder="Correo" [(ngModel)]="user.email"
                     required name="email" #email>
                 </mat-form-field>
@@ -34,6 +28,34 @@
                 <mat-form-field>
                     <input matInput placeholder="Contraseña" [(ngModel)]="userPassword"
                     required type="password" name="password" #password>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Rol</mat-label>
+                    <mat-select [(value)]="user.rol">
+                        <mat-option *ngFor="let role of roles" [value]="role.value">
+                            {{role.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>            
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Lugar de Trabajo" [(ngModel)]="user.lugarTrabajo"
+                    required name="lugarTrabajo" #lugarTrabajo>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Fecha de Nacimiento (dd/mm/yyyy)" [(ngModel)]="user.fechaNacimiento"
+                    required name="fechaNacimiento" #fechaNacimiento>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Número de Contacto" [(ngModel)]="user.numeroContacto"
+                    required type="tel" name="numeroContacto" #numeroContacto>
                 </mat-form-field>
             </div>
         </mat-card-content>

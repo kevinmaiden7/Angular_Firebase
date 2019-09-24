@@ -1,16 +1,59 @@
 <mat-card>
+    <form #perfilForm="ngForm" (ngSubmit)="update()">
+        <mat-card-header>
+            <mat-card-title><h2>Perfil de Usuario</h2></mat-card-title>
+        </mat-card-header>
 
-    <mat-card-header>
-        <mat-card-title><h2>Perfil de Usuario</h2></mat-card-title>
-    </mat-card-header>
+        <mat-card-content>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Nombre(s)" [(ngModel)]="user.nombres"
+                    required name="nombres" #nombres>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Apellido(s)" [(ngModel)]="user.apellidos"
+                    required name="apellidos" #apellidos>
+                </mat-form-field>
+            </div>
+            <div>
+                <h6>Correo Electrónico: {{user.correo}}</h6>
+            </div>
+            <div>
+                <h6 *ngIf="!isAdmin">Rol de Usuario: {{user.rol}}</h6>
+                <div *ngIf="isAdmin">
+                    <mat-form-field>
+                        <mat-label>Cambiar Rol</mat-label>
+                            <mat-select [(value)]="user.rol">
+                                <mat-option *ngFor="let role of roles" [value]="role.value">
+                                    {{role.value}}
+                                </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Fecha de Nacimiento" [(ngModel)]="user.fechaNacimiento"
+                    required name="fechaNacimiento" #fechaNacimiento>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Lugar de Trabajo" [(ngModel)]="user.lugarTrabajo"
+                    required name="lugarTrabajo" #lugarTrabajo>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Número de Contacto" [(ngModel)]="user.numeroContacto"
+                    required name="numeroContacto" #numeroContacto>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
 
-    <mat-card-content>
-        <div>
-            <h3>{{user.rol}}</h3>
-            <h4>Nombre(s): {{user.nombres}}</h4>
-            <h4>Apellido(s): {{user.apellidos}}</h4>
-            <h4>Correo Electrónico: {{user.correo}}</h4>
-        </div>
-    </mat-card-content>
-
+        <mat-card-actions>
+            <button *ngIf="enableToModify" mat-raised-button color="primary" type="submit"
+            [disabled]="!perfilForm.form.valid">Modificar Perfil</button>
+        </mat-card-actions>
+    </form>
 </mat-card>

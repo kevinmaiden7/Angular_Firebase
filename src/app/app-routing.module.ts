@@ -25,7 +25,8 @@ const routes: Routes = [
   },
   {
     path: 'perfil/:uid',
-    component: PerfilComponent
+    component: PerfilComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'lista-usuarios',

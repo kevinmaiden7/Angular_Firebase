@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './security/login/login.component';
 import { RegistroComponent } from './gestionUsuarios/registro/registro.component';
 
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material'
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule,
+MatSelectModule } from '@angular/material'
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -48,6 +49,7 @@ const config = {
     MatInputModule,
     MatListModule,
     MatToolbarModule,
+    MatSelectModule,
     FormsModule,
     AngularFireModule.initializeApp(config), // Initialize Firebase
     AngularFireAuthModule, // auth

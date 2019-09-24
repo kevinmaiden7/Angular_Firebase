@@ -23,8 +23,8 @@ export class FirestoreService {
       return new Promise<any>((resolve, reject) =>{
         this.firestore.collection(this.usersCollection).
         doc(cred.user.uid).set(data).then(res => {
-            console.log("User successfully added!");
-          }, error => error.log(error));
+            window.alert("Se agregó exitosamente el nuevo usuario!");
+          }, error => window.alert(error));
         });
     });
   }
@@ -32,6 +32,13 @@ export class FirestoreService {
   fetchUser(uid){
     return this.firestore.collection(this.usersCollection).
     doc(uid).get().toPromise();
+  }
+
+  updateUser(uid, data){
+    this.firestore.collection(this.usersCollection).doc(uid).update(data)
+    .then(res => {
+      window.alert("Se modificó exitosamente el usuario!");
+    }, error => window.alert(error));
   }
 
 }
