@@ -6,6 +6,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { PerfilComponent } from './gestionUsuarios/perfil/perfil.component';
 import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-usuarios.component';
 import { ListaIncidentesComponent } from './incidentes/lista-incidentes/lista-incidentes.component';
+import { InfoIncidenteComponent } from './incidentes/info-incidente/info-incidente.component';
 
 import { AuthGuard } from './security/guards/auth.guard';
 import { Role } from './security/models'
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path: 'lista-incidentes',
     component: ListaIncidentesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'incidente/:id',
+    component: InfoIncidenteComponent,
     canActivate: [AuthGuard]
   },
 

@@ -3,14 +3,17 @@
     <mat-card-content *ngIf="isAdmin">
             <mat-list-item *ngFor="let incidente of incidentes">
                 <h3 mat-line>
-                    <a mat-button >{{incidente.nombre}}</a>
+                    <a mat-button [routerLink]="['/incidente', incidente.id]">
+                    {{incidente.nombre}}: {{incidente.estado}}</a>
                 </h3>
         </mat-list-item>
     </mat-card-content>
     <mat-card-content *ngIf="!isAdmin">
         <mat-list-item *ngFor="let incidente of incidentes">
                 <h3 mat-line>
-                    <a mat-button *ngIf="incidente.autor == currentUserId" >{{incidente.nombre}}</a>
+                    <a mat-button *ngIf="incidente.autor == currentUserId" 
+                    [routerLink]="['/incidente', incidente.id]">{{incidente.nombre}}: 
+                    {{incidente.estado}}</a>
                 </h3>
         </mat-list-item>
     </mat-card-content>

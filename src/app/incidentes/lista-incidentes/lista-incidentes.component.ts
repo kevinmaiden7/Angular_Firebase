@@ -23,7 +23,6 @@ export class ListaIncidentesComponent implements OnInit {
   ngOnInit() {
     this.apiService.getIncidentes().subscribe(data => {
       this.incidentes = data;
-      console.log(this.incidentes);
     });
   }
 
