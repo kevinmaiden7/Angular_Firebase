@@ -1,1 +1,10 @@
-<p>lista-usuarios works!</p>
+<mat-card>
+    <mat-card-title>Lista de Usuarios</mat-card-title>
+    <mat-card-content>
+        <mat-list-item *ngFor="let user of users">
+            <h3 mat-line>
+                <a mat-button (click)="goToProfile(user)">{{user.nombres}} {{user.apellidos}}</a>
+            </h3>
+        </mat-list-item>
+    </mat-card-content>
+</mat-card>

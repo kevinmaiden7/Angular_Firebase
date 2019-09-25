@@ -34,6 +34,10 @@ export class FirestoreService {
     doc(uid).get().toPromise();
   }
 
+  fetchUsers(){
+    return this.firestore.collection(this.usersCollection).get().toPromise();
+  }
+
   updateUser(uid, data){
     this.firestore.collection(this.usersCollection).doc(uid).update(data)
     .then(res => {

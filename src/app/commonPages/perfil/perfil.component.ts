@@ -45,7 +45,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
         var userData = doc.data();
         this.user.nombres = userData.nombres;
         this.user.apellidos = userData.apellidos;
-        this.user.correo = userData.email;
+        this.user.email = userData.email;
         this.user.rol = userData.rol;
         this.user.lugarTrabajo = userData.lugarTrabajo;
         this.user.fechaNacimiento = userData.fechaNacimiento;
