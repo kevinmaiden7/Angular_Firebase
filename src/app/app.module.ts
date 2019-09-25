@@ -14,8 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { InicioComponent } from './commonPages/inicio/inicio.component';
-import { PerfilComponent } from './commonPages/perfil/perfil.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { PerfilComponent } from './gestionUsuarios/perfil/perfil.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-usuarios.component';
 
