@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './security/login/login.component';
 import { RegistroComponent } from './gestionUsuarios/registro/registro.component';
 
@@ -18,6 +19,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { PerfilComponent } from './gestionUsuarios/perfil/perfil.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-usuarios.component';
+import { ListaIncidentesComponent } from './incidentes/lista-incidentes/lista-incidentes.component';
 
 // Web app's Firebase configuration
 const config = {
@@ -38,7 +40,8 @@ const config = {
     InicioComponent,
     PerfilComponent,
     TopBarComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    ListaIncidentesComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ const config = {
     FormsModule,
     AngularFireModule.initializeApp(config), // Initialize Firebase
     AngularFireAuthModule, // auth
-    AngularFirestoreModule // firestore
+    AngularFirestoreModule, // firestore
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

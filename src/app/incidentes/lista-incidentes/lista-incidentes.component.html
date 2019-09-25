@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-title>Lista de Incidentes</mat-card-title>
+    <mat-card-content *ngIf="isAdmin">
+            <mat-list-item *ngFor="let incidente of incidentes">
+                <h3 mat-line>
+                    <a mat-button >{{incidente.nombre}}</a>
+                </h3>
+        </mat-list-item>
+    </mat-card-content>
+    <mat-card-content *ngIf="!isAdmin">
+        <mat-list-item *ngFor="let incidente of incidentes">
+                <h3 mat-line>
+                    <a mat-button *ngIf="incidente.autor == currentUserId" >{{incidente.nombre}}</a>
+                </h3>
+        </mat-list-item>
+    </mat-card-content>
+</mat-card>

@@ -36,4 +36,11 @@ export class InicioComponent implements OnInit {
     }
   }
 
+  goToListaIncidentes(){
+    if (!this.isAuthenticated)
+      window.alert("No está autenticado");
+    else
+      this.router.navigate(['/lista-incidentes']);
+  }
+
 }
