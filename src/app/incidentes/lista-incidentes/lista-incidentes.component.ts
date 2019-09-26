@@ -21,18 +21,21 @@ export class ListaIncidentesComponent implements OnInit {
 
   // Los guards garantizan que este componente siempre será accedido por un usuario registrado
   ngOnInit() {
-    this.apiService.getIncidentes().subscribe(data => {
-      this.incidentes = data;
-    });
-  }
-
-  // Si es admin, mostrar todos los incidentes reportados
-  get isAdmin(){
-    return (this.authService.getCurrentUserRole == Role.Admin);
-  }
-
-  get currentUserId(){
-    return (this.authService.getCurrentUserUID);
+    const currentRole = this.authService.getCurrentUserRole;
+    // Página accedida por un admin: Se muestran todos los incidentes
+    if (currentRole == Role.Admin){
+        this.apiService.getIncidentes().subscribe(data => {
+        this.incidentes = data;
+      });
+    }
+    // Página accedida por un empleado o un proveedor: Se muestran los incidentes
+    // que este usuario ha reportado
+    else if (currentRole == Role.Empleado || currentRole == Role.Proveedor){
+        const currentUserUID = this.authService.getCurrentUserUID;
+        this.apiService.getIncidentesByAutor(currentUserUID).subscribe(data => {
+          this.incidentes = data;
+      });
+    }
   }
 
 }

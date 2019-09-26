@@ -35,12 +35,5 @@ export class InicioComponent implements OnInit {
       this.router.navigate(['/perfil/' + uid]);
     }
   }
-
-  goToListaIncidentes(){
-    if (!this.isAuthenticated)
-      window.alert("No está autenticado");
-    else
-      this.router.navigate(['/lista-incidentes']);
-  }
-
+  
 }

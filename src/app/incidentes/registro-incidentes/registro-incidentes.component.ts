@@ -13,9 +13,7 @@ export class RegistroIncidentesComponent implements OnInit {
 
   incidente: any = {};
   investigadores: Array<any> = [];
-  i = 0;
   comentarios: Array<any> = [];
-  j = 0;
 
   constructor(
     private router: Router,
@@ -25,23 +23,21 @@ export class RegistroIncidentesComponent implements OnInit {
 
   ngOnInit() {
     this.incidente.autor = this.authService.getCurrentUserUID;
-    this.incidente.investigadores = {};
-    this.incidente.comentarios = {};
   }
 
   agregarInvestigador(uid){
-    this.incidente.investigadores[this.i] = uid;
-    this.i++;
+    this.investigadores.push(uid);
     window.alert("Se agregó un nuevo investigador");
   }
 
   agregarComentario(comentario){
-    this.incidente.comentarios[this.j] = comentario;
-    this.j++;
+    this.comentarios.push(comentario);
     window.alert("Se agregó un nuevo comentario");
   }
 
   save(){
+    this.incidente.investigadores = this.investigadores;
+    this.incidente.comentarios = this.comentarios;
     this.apiService.saveIncidente(this.incidente).subscribe(result => {
       window.alert("Se agregó el nuevo reporte de incidente");
       this.router.navigate(["/"]);

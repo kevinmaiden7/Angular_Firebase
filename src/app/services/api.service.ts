@@ -29,4 +29,8 @@ export class ApiService {
     return result;
   }
 
+  getIncidentesByAutor(uid: string): Observable<any> {
+    return this.http.get(this.API + this.INCIDENTES_ENDPOINT + '/autor/' + uid);
+  }
+
 }
