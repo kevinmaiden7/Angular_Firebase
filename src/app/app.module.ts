@@ -21,6 +21,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-usuarios.component';
 import { ListaIncidentesComponent } from './incidentes/lista-incidentes/lista-incidentes.component';
 import { InfoIncidenteComponent } from './incidentes/info-incidente/info-incidente.component';
+import { RegistroIncidentesComponent } from './incidentes/registro-incidentes/registro-incidentes.component';
 
 // Web app's Firebase configuration
 const config = {
@@ -43,7 +44,8 @@ const config = {
     TopBarComponent,
     ListaUsuariosComponent,
     ListaIncidentesComponent,
-    InfoIncidenteComponent
+    InfoIncidenteComponent,
+    RegistroIncidentesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,70 @@
+<mat-card>
+    <form #incidenteForm="ngForm" (ngSubmit)="save()">
+        <mat-card-header>
+            <mat-card-title><h2>Reporte de Incidente</h2></mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Nombre:" [(ngModel)]="incidente.nombre"
+                    required name="nombre" #nombre>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Responsable:" [(ngModel)]="incidente.responsable"
+                    required name="responsable" #responsable>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Descripción:" [(ngModel)]="incidente.descripcion"
+                    required name="descripción" #descripción>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Estado:" [(ngModel)]="incidente.estado"
+                    required name="estado" #estado>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Impacto:" [(ngModel)]="incidente.impacto"
+                    required name="impacto" #impacto>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Fecha de Reporte:" [(ngModel)]="incidente.fechaReporte"
+                    required name="fechaReporte" #fechaReporte>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Investigador" name="investigadorUID" #investigadorUID>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Comentario" name="comentario" #comentario>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+            [disabled]="!incidenteForm.form.valid">Generar Reporte</button>
+
+            <button mat-raised-button color="secondary" 
+            (click)="agregarInvestigador(investigadorUID.value)" type="button"
+            [disabled]="!investigadorUID.value">Agregar Investigador</button>
+
+            <button mat-raised-button color="secondary" 
+            (click)="agregarComentario(comentario.value)" type="button"
+            [disabled]="!comentario.value" >Agregar Comentario</button>
+            
+        </mat-card-actions>
+    </form>
+</mat-card>

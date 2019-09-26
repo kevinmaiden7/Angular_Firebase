@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  //https://sgi-web-api.herokuapp.com
+
+  //public API = "//localhost:3000";
   public API = '//sgi-web-api.herokuapp.com';
-  //public API = '//localhost:3000';
   public INCIDENTES_ENDPOINT = '/incidentes';
   
   constructor(
@@ -19,8 +19,14 @@ export class ApiService {
     return this.http.get(this.API + this.INCIDENTES_ENDPOINT);
   }
 
-  getInicidenteById(id: string){
+  getInicidenteById(id: string): Observable<any>{
     return this.http.get(this.API + this.INCIDENTES_ENDPOINT + "/" + id);
+  }
+
+  saveIncidente(incidente: any): Observable<any>{
+    let result: Observable<Object>;
+    result = this.http.post(this.API + this.INCIDENTES_ENDPOINT, incidente);
+    return result;
   }
 
 }
