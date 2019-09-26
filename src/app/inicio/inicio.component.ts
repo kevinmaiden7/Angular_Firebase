@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class InicioComponent implements OnInit {
 
-  private email = "";
+  email = "";
 
   constructor(
     private router: Router,
