@@ -13,5 +13,22 @@
             <h4><a mat-stroked-button [routerLink]="['/registro-incidentes']">Reportar Incidente</a></h4>
             <h4><a mat-stroked-button [routerLink]="['/lista-incidentes']">Mis Incidentes</a></h4>
         </div>
+        <div>
+            <h4>Lecciones Aprendidas (Generales)</h4>
+            <mat-divider></mat-divider>
+            <cdk-virtual-scroll-viewport  style="height: 300px" itemSize="50">
+                <ng-container *cdkVirtualFor="let leccion of lecciones">
+                    <li>
+                        <h5>{{leccion.nombre}}</h5>
+                        <h6>{{leccion.fechaPublicacion}}</h6>
+                        <p>{{leccion.contenido}}</p>
+                    </li>
+                </ng-container>
+              </cdk-virtual-scroll-viewport>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+            <h4><a mat-stroked-button [routerLink]="['/registro-lecciones']">Reportar Lección</a></h4>
+        </div>
     </mat-card-content>
 </mat-card>

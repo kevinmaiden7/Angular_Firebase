@@ -1,0 +1,33 @@
+<mat-card>
+    <form #leccionForm="ngForm" (ngSubmit)="save()">
+        <mat-card-header>
+            <mat-card-title><h2>Reporte de Lecciones Aprendidas</h2></mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Nombre:" [(ngModel)]="leccion.nombre"
+                    required name="nombre" #nombre>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Fecha de Publicación:" [(ngModel)]="leccion.fechaPublicacion"
+                    required name="fechaPublicacion" #fechaPublicacion>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <textarea matInput placeholder="Contenido:" [(ngModel)]="leccion.contenido"
+                    required name="contenido" #contenido></textarea>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+            [disabled]="!leccionForm.form.valid">Publicar Lección</button>
+        </mat-card-actions>
+    </form>
+</mat-card>

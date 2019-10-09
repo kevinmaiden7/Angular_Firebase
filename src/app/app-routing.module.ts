@@ -8,6 +8,7 @@ import { ListaUsuariosComponent } from './gestionUsuarios/lista-usuarios/lista-u
 import { ListaIncidentesComponent } from './incidentes/lista-incidentes/lista-incidentes.component';
 import { InfoIncidenteComponent } from './incidentes/info-incidente/info-incidente.component';
 import { RegistroIncidentesComponent } from './incidentes/registro-incidentes/registro-incidentes.component';
+import { RegistroLeccionesComponent } from './registro-lecciones/registro-lecciones.component';
 
 import { AuthGuard } from './security/guards/auth.guard';
 import { Role } from './security/models'
@@ -53,6 +54,12 @@ const routes: Routes = [
     component: RegistroIncidentesComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin, Role.Empleado, Role.Proveedor] }
+  },
+  {
+    path: 'registro-lecciones',
+    component: RegistroLeccionesComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin, Role.Empleado, Role.Investigador] }
   },
 
   // cualquier otro caso redireccionar a inicio
