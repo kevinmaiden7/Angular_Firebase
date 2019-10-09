@@ -19,8 +19,8 @@
             </div>
             <div>
                 <mat-form-field>
-                    <input matInput placeholder="Descripción:" [(ngModel)]="incidente.descripcion"
-                    required name="descripción" #descripción>
+                    <textarea matInput placeholder="Descripción:" [(ngModel)]="incidente.descripcion"
+                    required name="descripcion" #descripcion></textarea>
                 </mat-form-field>
             </div>
             <div>
@@ -48,7 +48,7 @@
             </div>
             <div>
                 <mat-form-field>
-                    <input matInput placeholder="Comentario" name="comentario" #comentario>
+                    <textarea matInput placeholder="Comentario" name="comentario" #comentario></textarea>
                 </mat-form-field>
             </div>
         </mat-card-content>
