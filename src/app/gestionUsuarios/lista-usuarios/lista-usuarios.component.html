@@ -3,7 +3,7 @@
     <mat-card-content>
         <mat-list-item *ngFor="let user of users">
             <h3 mat-line>
-                <a mat-button (click)="goToProfile(user)">{{user.nombres}} {{user.apellidos}}</a>
+                <a mat-button (click)="goToProfile(user)">{{user.nombres}} {{user.apellidos}}: {{user.rol}}</a>
             </h3>
         </mat-list-item>
     </mat-card-content>

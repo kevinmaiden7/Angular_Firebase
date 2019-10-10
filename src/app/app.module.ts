@@ -8,7 +8,7 @@ import { LoginComponent } from './security/login/login.component';
 import { RegistroComponent } from './gestionUsuarios/registro/registro.component';
 
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule,
-MatSelectModule, MatDividerModule } from '@angular/material'
+MatSelectModule, MatDividerModule, MatCheckboxModule } from '@angular/material'
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -61,6 +61,7 @@ const config = {
     MatToolbarModule,
     MatSelectModule,
     MatDividerModule,
+    MatCheckboxModule,
     ScrollingModule,
     FormsModule,
     AngularFireModule.initializeApp(config), // Initialize Firebase

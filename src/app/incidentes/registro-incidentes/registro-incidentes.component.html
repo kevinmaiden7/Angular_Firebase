@@ -13,9 +13,13 @@
             </div>
             <div>
                 <mat-form-field>
-                    <input matInput placeholder="Responsable:" [(ngModel)]="incidente.responsable"
-                    required name="responsable" #responsable>
-                </mat-form-field>
+                        <mat-label>Responsable</mat-label>
+                        <mat-select [(value)]="responsable">
+                            <mat-option *ngFor="let empleado of empleados" [value]="empleado">
+                                {{empleado.nombres}} {{empleado.apellidos}} 
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
             </div>
             <div>
                 <mat-form-field>
@@ -42,9 +46,13 @@
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field>
-                    <input matInput placeholder="Investigador" name="investigadorUID" #investigadorUID>
-                </mat-form-field>
+                <h6>Investigadores</h6>
+                <mat-list-item *ngFor="let investigador of investigadores">
+                    <p mat-line>
+                        <input (change)="invSeleccionados.push(investigador)" type="radio">
+                        {{investigador.nombres}} {{investigador.apellidos}}
+                    </p>
+                </mat-list-item>
             </div>
             <div>
                 <mat-form-field>
@@ -58,11 +66,7 @@
             [disabled]="!incidenteForm.form.valid">Generar Reporte</button>
 
             <button mat-raised-button color="secondary" 
-            (click)="agregarInvestigador(investigadorUID.value)" type="button"
-            [disabled]="!investigadorUID.value">Agregar Investigador</button>
-
-            <button mat-raised-button color="secondary" 
-            (click)="agregarComentario(comentario.value)" type="button"
+            (click)="agregarComentario(comentario.value)" (click)="comentario.value=''" type="button"
             [disabled]="!comentario.value" >Agregar Comentario</button>
         </mat-card-actions>
     </form>

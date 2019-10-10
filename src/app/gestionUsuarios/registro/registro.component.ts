@@ -44,6 +44,10 @@ export class RegistroComponent implements OnInit {
       window.alert("No ha asignado un rol");
       return;
     }
+    if(String(this.userPassword).length <= 6){
+      window.alert("La contraseña debe tener más de 6 caracteres");
+      return;
+    }
     this.firestoreService.addUser(this.user, this.userPassword);
     this.router.navigate(['/']);
   }

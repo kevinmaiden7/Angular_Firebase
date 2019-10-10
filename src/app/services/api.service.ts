@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  public API = "//localhost:3000";
-  //public API = '//sgi-web-api.herokuapp.com';
+  //public API = "//localhost:3000";
+  public API = '//sgi-web-api.herokuapp.com';
   public INCIDENTES_ENDPOINT = '/incidentes';
   public LECCIONES_ENDPOINT = '/lecciones';
   

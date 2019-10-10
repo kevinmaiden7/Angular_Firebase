@@ -14,9 +14,6 @@ export class InfoIncidenteComponent implements OnInit {
 
   incidente: any = {};
   sub: Subscription;
-  //nombreAutor = "";
-  //nombreResponsable = "";
-  //nombresInvestigadores: Array<any> = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +29,11 @@ export class InfoIncidenteComponent implements OnInit {
         this.apiService.getInicidenteById(id).subscribe((data: any) => {
           if (data){
             this.incidente = data;
+            this.getCompleteName(data.autor, 'autor', -1);
+            this.getCompleteName(data.responsable, 'responsable', -1);
+            var i = 0;
+            for(let i = 0; i < data.investigadores.length; i++)
+              this.getCompleteName(data.investigadores[i], 'investigador', i);
           }
         });
       }
@@ -42,11 +44,17 @@ export class InfoIncidenteComponent implements OnInit {
     console.log("update: TODO");
   }
 
-  /*getCompleteName(uid) {
+  getCompleteName(uid, field, index) {
     this.firestore.fetchUser(uid).then(doc => {
       const userData = doc.data();
-      return(userData.nombres + ' ' + userData.apellidos);
+      const name = userData.nombres + ' ' + userData.apellidos;
+      if (field == 'autor')
+        this.incidente.autor = name;
+      else if (field == 'responsable')
+        this.incidente.responsable = name;
+      else if (field == 'investigador')
+        this.incidente.investigadores[index] = name;
     });
-  }*/
+  }
 
 }
