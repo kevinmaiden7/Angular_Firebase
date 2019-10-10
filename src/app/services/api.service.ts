@@ -36,6 +36,10 @@ export class ApiService {
     return this.http.get(this.API + this.INCIDENTES_ENDPOINT + '/autor/' + uid);
   }
 
+  getIncidentesByInvestigador(uid: string): Observable<any> {
+    return this.http.get(this.API + this.INCIDENTES_ENDPOINT + '/investigador/' + uid);
+  }
+
   // Lecciones
 
   getLecciones(): Observable<any> {

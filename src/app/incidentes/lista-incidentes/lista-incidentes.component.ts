@@ -31,9 +31,17 @@ export class ListaIncidentesComponent implements OnInit {
     // Página accedida por un empleado o un proveedor: Se muestran los incidentes
     // que este usuario ha reportado
     else if (currentRole == Role.Empleado || currentRole == Role.Proveedor){
-        const currentUserUID = this.authService.getCurrentUserUID;
-        this.apiService.getIncidentesByAutor(currentUserUID).subscribe(data => {
+        const currentUserID = this.authService.getCurrentUserUID;
+        this.apiService.getIncidentesByAutor(currentUserID).subscribe(data => {
           this.incidentes = data;
+      });
+    }
+    // Página accedida por un investigador: Se muestran los incidentes
+    // en los que este ha sido asignado
+    else if (currentRole == Role.Investigador){
+      const currentUserID = this.authService.getCurrentUserUID;
+      this.apiService.getIncidentesByInvestigador(currentUserID).subscribe(data => {
+        this.incidentes = data;
       });
     }
   }
