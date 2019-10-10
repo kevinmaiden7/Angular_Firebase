@@ -47,10 +47,20 @@
                     <p>{{comentario}}</p>
                 </mat-list-item>
             </div>
+            <div>
+                <mat-form-field>
+                    <textarea matInput placeholder="Nuevo Comentario" name="comentario" #comentario></textarea>
+                </mat-form-field>
+            </div>
         </mat-card-content>
 
         <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+            [disabled]="!infoIncidenteForm.form.valid">Actualizar Reporte</button>
 
+            <button mat-raised-button color="secondary" 
+            (click)="agregarComentario(comentario.value)" (click)="comentario.value=''" type="button"
+            [disabled]="!comentario.value" >Agregar Comentario</button>
         </mat-card-actions>
     </form>
 </mat-card>

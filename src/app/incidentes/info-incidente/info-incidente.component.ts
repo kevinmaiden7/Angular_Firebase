@@ -13,6 +13,8 @@ import { FirestoreService } from '../../services/firestore.service';
 export class InfoIncidenteComponent implements OnInit {
 
   incidente: any = {};
+  formatoOriginalIncidente: any = {};
+  incidenteId = "";
   sub: Subscription;
 
   constructor(
@@ -24,9 +26,9 @@ export class InfoIncidenteComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id){
-        this.apiService.getInicidenteById(id).subscribe((data: any) => {
+      this.incidenteId = params['id'];
+      if (this.incidenteId){
+        this.apiService.getInicidenteById(this.incidenteId).subscribe((data: any) => {
           if (data){
             this.incidente = data;
             this.getCompleteName(data.autor, 'autor', -1);
@@ -36,12 +38,13 @@ export class InfoIncidenteComponent implements OnInit {
               this.getCompleteName(data.investigadores[i], 'investigador', i);
           }
         });
+        this.apiService.getInicidenteById(this.incidenteId).subscribe((data: any) => {
+          if (data){
+            this.formatoOriginalIncidente = data;
+          }
+        });
       }
     });
-  }
-
-  update(){
-    console.log("update: TODO");
   }
 
   getCompleteName(uid, field, index) {
@@ -55,6 +58,22 @@ export class InfoIncidenteComponent implements OnInit {
       else if (field == 'investigador')
         this.incidente.investigadores[index] = name;
     });
+  }
+
+  update(){
+    this.formatoOriginalIncidente.estado = this.incidente.estado;
+    this.formatoOriginalIncidente.descripcion = this.incidente.descripcion;
+    this.formatoOriginalIncidente.impacto = this.incidente.impacto;
+    
+    this.apiService.updateIncidente(this.formatoOriginalIncidente, this.incidenteId).subscribe(result => {
+      window.alert("Se actualizó el reporte de incidente");
+      this.router.navigate(["/"]);
+    },error => window.alert(error));
+  }
+
+  agregarComentario(comentario){
+    this.formatoOriginalIncidente.comentarios.push(comentario);
+    window.alert("Se agregó un nuevo comentario a la cola para ser reportado");
   }
 
 }

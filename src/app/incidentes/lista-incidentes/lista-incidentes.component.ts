@@ -25,7 +25,7 @@ export class ListaIncidentesComponent implements OnInit {
     // Página accedida por un admin: Se muestran todos los incidentes
     if (currentRole == Role.Admin){
         this.apiService.getIncidentes().subscribe(data => {
-        this.incidentes = data;
+          this.incidentes = data;
       });
     }
     // Página accedida por un empleado o un proveedor: Se muestran los incidentes

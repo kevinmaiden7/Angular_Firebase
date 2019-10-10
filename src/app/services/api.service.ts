@@ -10,6 +10,7 @@ export class ApiService {
   //public API = "//localhost:3000";
   public API = '//sgi-web-api.herokuapp.com';
   public INCIDENTES_ENDPOINT = '/incidentes';
+  public GESTION_INCIDENTES_ENDPOINT = '/gestion-incidentes';
   public LECCIONES_ENDPOINT = '/lecciones';
   
   constructor(
@@ -38,6 +39,12 @@ export class ApiService {
 
   getIncidentesByInvestigador(uid: string): Observable<any> {
     return this.http.get(this.API + this.INCIDENTES_ENDPOINT + '/investigador/' + uid);
+  }
+
+  // Gestión de incidentes
+
+  updateIncidente(incidente: any, id: string): Observable<any>{
+    return this.http.put(this.API + this.GESTION_INCIDENTES_ENDPOINT + "/" + id, incidente);
   }
 
   // Lecciones
